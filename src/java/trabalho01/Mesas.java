@@ -6,15 +6,34 @@ import java.util.Date;
 
 public class Mesas {
     
-    private int mesacod;
+    private static int contadorDeMesa = 0;
+    private int mesacod = 0;
+    private boolean flagMesa = false;
     Pedidos pedido;
 
+    public static int getContadorDeMesa() {
+        return contadorDeMesa;
+    }
+
+    public static void setContadorDeMesa(int contadorDeMesa) {
+        Mesas.contadorDeMesa = contadorDeMesa;
+    }
+
+    public boolean isFlagMesa() {
+        return flagMesa;
+    }
+
+    public void setFlagMesa(boolean flagMesa) {
+        this.flagMesa = flagMesa;
+    }
+    
+    
     public Pedidos getPedido() {
         return pedido;
     }
 
     public Mesas(int mesacod, Pedidos pedido) {
-        this.mesacod = mesacod;
+        this.contadorDeMesa = mesacod;
         this.pedido = pedido;
     }
 
@@ -33,14 +52,16 @@ public class Mesas {
 
     @Override
     public String toString() {
-        return "Mesa número : " + mesacod;
+        return "Mesa " + mesacod;
     }
 
     public Mesas() {
+        mesacod  = contadorDeMesa;
+        this.contadorDeMesa++;
     }
 
     public Mesas(int mesacod) {
-        this.mesacod = mesacod;
+        this.contadorDeMesa = mesacod;
     }
 
     public int getMesacod() {
@@ -48,8 +69,9 @@ public class Mesas {
     }
 
     public void setMesacod(int mesacod) {
-        this.mesacod = mesacod;
+        this.contadorDeMesa = mesacod;
     }
+    
     
     
     
