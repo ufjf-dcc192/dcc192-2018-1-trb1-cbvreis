@@ -9,6 +9,7 @@ public class ListaDeMesas {
 
     private static List<Mesas> mesas;
 
+    
     public static List<Mesas> getInstance() {
         if (mesas == null) {
             mesas = new ArrayList<>();

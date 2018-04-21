@@ -58,6 +58,8 @@ public class Mesas {
     public Mesas() {
         mesacod  = contadorDeMesa;
         this.contadorDeMesa++;
+        pedido = new Pedidos();
+        
     }
 
     public Mesas(int mesacod) {

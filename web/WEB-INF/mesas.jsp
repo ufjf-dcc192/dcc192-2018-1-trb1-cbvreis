@@ -5,12 +5,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Inserir uma nova Mesa</title>
+        <title>Gerir Mesas</title>
     </head>
     <body>
         <h1>Inserir uma Nova Mesa</h1>
 
-        <label>Mesa </label>
         <a href ="adicionar.html"/> Adicionar Mesa </a>
     <div>
         <table border="1">
@@ -21,18 +20,18 @@
                 %>
                 <tr>
                     
-                    <td> <a href="editar.html?codigo=<%=i%>"><%= mesas.get(i).toString()%> </a></td>
+                    <td> <a href="ver-mesa.html?codigo=<%=i%>"><%= mesas.get(i).toString()%> </a></td>
                     <td> <a href="editar.html?codigo=<%=i%>">
-                            <% if(mesas.get(i).isFlagMesa()==true){
-                            %> Fechado
+                            <% if(mesas.get(i).isFlagMesa()==false){
+                            %> ABERTO
                             <%
                             }else{
-                            %> Aberto
+                            %> FECHADO
                             <%
                                 }
                             %> </a></td>
                     <td colspan="3"> <a href="adicionar-Itens.html?codigo=<%=i%>"> Adicionar Itens </a> </td>
-                    <td colspan="3"> <a href="fechar-mesa.html?codigo=<%=i%>"> Fechar Pedido </a> </td>
+                    <td colspan="3"> <a href="fechar-mesa.html?codigo=<%=i%>"> Fechar Mesa </a> </td>
                     <td colspan="3"> <a href="excluir-mesa.html?codigo=<%=i%>"> Ecluir Mesa </a> </td>
                 </tr>
                 <%

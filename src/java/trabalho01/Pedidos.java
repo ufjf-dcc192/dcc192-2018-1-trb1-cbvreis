@@ -47,4 +47,9 @@ public class Pedidos {
         this.dataPedidoFechamento = dataPedidoFechamento;
     }
 
+    public Pedidos() {
+    }
+    
+    
+
 }
