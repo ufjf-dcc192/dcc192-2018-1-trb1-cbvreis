@@ -1,14 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package trabalho01;
 
-/**
- *
- * @author ice
- */
+import java.util.Date;
+
+
 public class Mesas {
+    
+    private int mesacod;
+    private Date date;
+
+    @Override
+    public String toString() {
+        return "Mesa número : " + mesacod;
+    }
+
+    public Mesas() {
+    }
+
+    public Mesas(int mesacod) {
+        this.mesacod = mesacod;
+    }
+
+    public int getMesacod() {
+        return mesacod;
+    }
+
+    public void setMesacod(int mesacod) {
+        this.mesacod = mesacod;
+    }
+    
+    
     
 }
