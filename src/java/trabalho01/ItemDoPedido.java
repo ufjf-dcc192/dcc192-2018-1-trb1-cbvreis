@@ -8,6 +8,7 @@ public class ItemDoPedido {
     private int quantidade;
     private int preco;
 
+
     public ItemDoPedido(String nome, int quantidade, int preco) {
         this.nome = nome;
         this.quantidade = quantidade;
