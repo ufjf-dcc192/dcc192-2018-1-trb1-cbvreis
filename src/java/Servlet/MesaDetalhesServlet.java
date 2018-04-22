@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import trabalho01.ItemDoPedido;
 import trabalho01.ListaDeMesas;
 import trabalho01.Mesas;
 import trabalho01.Pedidos;
@@ -18,6 +19,23 @@ public class MesaDetalhesServlet extends HttpServlet {
  
     List<Mesas> mesas = ListaDeMesas.getInstance();
 
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int mesa = Integer.parseInt(request.getParameter("mesa"));
+        int quantidade = Integer.parseInt(request.getParameter("quantidade"));
+        String produto = request.getParameter("produto");
+        
+        
+        ItemDoPedido novoItem = new ItemDoPedido(produto,quantidade,5);
+        Pedidos novoPedido = new Pedidos(novoItem);
+       
+        mesas.get(mesa).setPedido(novoPedido);
+  
+        response.sendRedirect("ver-mesa.html?codigo=" + mesa);
+
+    }
+
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

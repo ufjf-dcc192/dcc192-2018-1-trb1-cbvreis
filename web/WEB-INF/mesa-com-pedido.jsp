@@ -21,7 +21,10 @@
                    
                 %>
                 <tr>
-                    <td><%= pedido.toString()%></td>
+                    <td><% 
+                        if(pedido.getPedidos()!=null) 
+                            out.println(pedido.toString());
+                    %></td>
                    
             <a href ="adicionar-pedido.html?mesa=<%=
                codigo

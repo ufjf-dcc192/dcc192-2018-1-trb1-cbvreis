@@ -11,18 +11,17 @@ public class Pedidos {
     private Date dataPedidoAbertura;
     private Date dataPedidoFechamento;
     private boolean estado = true;
-    private List<ItemDoPedido> pedidos;
+    private ItemDoPedido pedidos;
 
-    public Pedidos(int pedidoCod, boolean flagAberto, List<ItemDoPedido> pedidos) {
-        this.pedidoCod = pedidoCod;
-        this.estado = flagAberto;
+    public Pedidos(ItemDoPedido pedidos) {
         this.pedidos = pedidos;
     }
 
-    public List<ItemDoPedido> getPedidos() {
-        return pedidos;
+    public Pedidos() {
     }
 
+     
+    
     public int getPedidoCod() {
         return pedidoCod;
     }
@@ -47,9 +46,27 @@ public class Pedidos {
         this.dataPedidoFechamento = dataPedidoFechamento;
     }
 
-    public Pedidos() {
+    public boolean isEstado() {
+        return estado;
     }
-    
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public ItemDoPedido getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(ItemDoPedido pedidos) {
+        this.pedidos = pedidos;
+    }
+
+    @Override
+    public String toString() {
+        return "Item Pedido=" + pedidos.getNome()  + pedidos.getQuantidade(); 
+    }
+
     
 
 }
