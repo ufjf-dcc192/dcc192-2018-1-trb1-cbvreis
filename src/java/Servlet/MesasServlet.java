@@ -1,5 +1,6 @@
 package Servlet;
 
+import static java.awt.SystemColor.window;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -8,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 import trabalho01.ListaDeMesas;
 import trabalho01.Mesas;
 
@@ -47,8 +49,13 @@ public class MesasServlet extends HttpServlet {
     private void excluirMesa(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         int cod = Integer.parseInt(request.getParameter("codigo"));
-        List<Mesas> tarefas = ListaDeMesas.getInstance();
-        tarefas.remove(cod);
+        List<Mesas> mesas = ListaDeMesas.getInstance();
+        if(mesas.get(cod).getPedido().isEstado()){
+            mesas.remove(cod);
+        }else{
+            //request.setAttribute("alerta", alerta);
+            /*IGOR - ver alerta */
+        }
         response.sendRedirect("mesas.html");
 
     }

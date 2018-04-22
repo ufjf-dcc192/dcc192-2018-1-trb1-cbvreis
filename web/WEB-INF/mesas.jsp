@@ -12,27 +12,26 @@
 
         <a href ="adicionar.html"/> Adicionar Mesa </a>
     <div>
+        <br/>
         <table border="1">
             <tbody>
                 <%
                     List<Mesas> mesas = (List<Mesas>) request.getAttribute("mesas");
+                    
                     for (int i = 0; i < mesas.size(); i++) {
                 %>
                 <tr>
                     
                     <td> <a href="ver-mesa.html?codigo=<%=i%>"><%= mesas.get(i).toString()%> </a></td>
-                    <td> <a href="editar.html?codigo=<%=i%>">
-                            <% if(mesas.get(i).isFlagMesa()==false){
+                    <td><% if(mesas.get(i).getPedido().isEstado()==true){
                             %> ABERTO
                             <%
                             }else{
                             %> FECHADO
                             <%
                                 }
-                            %> </a></td>
-                    <td colspan="3"> <a href="adicionar-Itens.html?codigo=<%=i%>"> Adicionar Itens </a> </td>
-                    <td colspan="3"> <a href="fechar-mesa.html?codigo=<%=i%>"> Fechar Mesa </a> </td>
-                    <td colspan="3"> <a href="excluir-mesa.html?codigo=<%=i%>"> Ecluir Mesa </a> </td>
+                            %> </td>
+                    <td colspan="3"> <a href="excluir-mesa.html?codigo=<%=i%>"> Excluir Mesa </a> </td>
                 </tr>
                 <%
                     }

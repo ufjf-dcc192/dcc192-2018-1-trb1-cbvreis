@@ -11,7 +11,7 @@ public class Pedidos {
     private int pedidoCod;
     private Date dataPedidoAbertura;
     private Date dataPedidoFechamento;
-    private boolean estado = true;
+    private boolean estado = true; //aberto
     private List<ItemDoPedido> pedidos = new ArrayList<>();
 
   

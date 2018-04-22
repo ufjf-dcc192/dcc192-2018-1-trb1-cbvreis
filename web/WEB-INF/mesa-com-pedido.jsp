@@ -3,41 +3,65 @@
 <%@page import="trabalho01.Mesas"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%
+    Pedidos pedido = (Pedidos) request.getAttribute("pedidos");
+    List<Mesas> mesas = (List<Mesas>) request.getAttribute("mesas");
+    int codigo = (Integer) request.getAttribute("codigo");
+    int somaParcial = 0;
+%>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-   <body>
+    <body>
         <h1>Mesa  </h1>
+        <%if(!pedido.isEstado()){ %>
+        <h1>
+            Pedido fechado!
+        </h1>
+        <%}%>
+        <div>
+            <table border="1">
+                <tbody>
+                    <%
+                        if (pedido.getPedidos() != null) {
+                    %>
 
-    <div>
-        <table border="1">
-            <tbody>
-                <%
-                   Pedidos pedido = (Pedidos) request.getAttribute("pedidos");
-                   List<Mesas> mesas = (List<Mesas>) request.getAttribute("mesas");
-                   int codigo = (Integer) request.getAttribute("codigo");
-                   int somaParcial = 0;
-                   
-                if(pedido.getPedidos()!=null){ 
-                %>
-                <% for(int i = 0 ; i<pedido.getPedidos().size();i++){
-                    somaParcial+= pedido.getPedidos().get(i).getPreco();%>
-                <tr>
-                    <td><%=pedido.getPedidos().get(i)%></td>
-                    
-                    
-                   <% }}%>
-            </tr>
-            <a href ="adicionar-pedido.html?codigo=<%=
-               codigo
-               %>"> Adicionar Pedido </a>
-            </tbody>
-        </table>
-             <%=somaParcial%>
+                    <% for (int i = 0; i < pedido.getPedidos().size(); i++) {
+                        somaParcial += pedido.getPedidos().get(i).getPreco();%>
+                    <tr>
+                        <td><%=pedido.getPedidos().get(i)%></td>
 
-    </div>
+
+                        <% }
+                       }%>
+                    </tr>
+                </tbody>
+            </table>
+            <br/>
+
+            <div> O Valor atual para pagamento é :<b> <%=somaParcial%> </b></div>
+
+
+
+
+
+            
+        <%if(pedido.isEstado()){ %>
+        <br/><a href ="adicionar-pedido.html?codigo=<%=codigo%>"> Adicionar Pedido </a>
+
+        <br/><a href ="fechar-pedido.html?codigo=<%=codigo%>"> Fechar Pedido </a>
+  
+
+        <%}%>
+
+        
+
+        </div>
+        <br/><a href ="mesas.html"> Voltar as Mesas </a>
+
     </body>
 </html>
