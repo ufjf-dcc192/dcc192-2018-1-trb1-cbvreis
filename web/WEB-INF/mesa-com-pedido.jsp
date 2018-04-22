@@ -23,12 +23,10 @@
             Pedido fechado!
         </h1>
         <%}%>
+        <% if (pedido.getPedidos() != null) { %>
         <div>
             <table border="1">
                 <tbody>
-                    <%
-                        if (pedido.getPedidos() != null) {
-                    %>
 
                     <% for (int i = 0; i < pedido.getPedidos().size(); i++) {
                         somaParcial += pedido.getPedidos().get(i).getPreco();%>
@@ -36,11 +34,11 @@
                         <td><%=pedido.getPedidos().get(i)%></td>
 
 
-                        <% }
-                       }%>
+                        <% }%>
                     </tr>
                 </tbody>
             </table>
+          <%}%>
             <br/>
 
             <div> O Valor atual para pagamento é :<b> <%=somaParcial%> </b></div>

@@ -13,7 +13,7 @@
         <%int codigo = (Integer) request.getAttribute("codigo");%>
         <h1>Pedidos referentes a mesa <%=codigo%></h1>
         <form method="post">
-            Pedido para mesa: <input name="mesa" placeholder=" <%=codigo%>" value="3" > 
+            Pedido para mesa: <input name="mesa"  value="<%=codigo%>" readonly> 
             Quantidade: <input type ="text" name = "quantidade" /> 
             <!--COMBO DE SELEÇÃO -->
             <select name="produto">
