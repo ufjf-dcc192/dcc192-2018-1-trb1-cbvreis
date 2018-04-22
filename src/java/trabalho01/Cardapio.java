@@ -3,15 +3,23 @@ package trabalho01;
 
 public class Cardapio {
     
-    private String produto;
+    private String nome;
     private int preco;
 
-    public String getProduto() {
-        return produto;
+    public Cardapio() {
     }
 
-    public void setProduto(String produto) {
-        this.produto = produto;
+    public Cardapio(String nome, int preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public int getPreco() {
@@ -22,13 +30,7 @@ public class Cardapio {
         this.preco = preco;
     }
 
-    public Cardapio(String produto, int preco) {
-        this.produto = produto;
-        this.preco = preco;
-    }
-
-    public Cardapio() {
-    }
+   
     
     
     

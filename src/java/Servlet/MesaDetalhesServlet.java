@@ -2,6 +2,7 @@ package Servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,6 +19,7 @@ import trabalho01.Pedidos;
 public class MesaDetalhesServlet extends HttpServlet {
  
     List<Mesas> mesas = ListaDeMesas.getInstance();
+    
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,9 +28,13 @@ public class MesaDetalhesServlet extends HttpServlet {
         String produto = request.getParameter("produto");
         
         
-        ItemDoPedido novoItem = new ItemDoPedido(produto,quantidade,5);
-        Pedidos novoPedido = new Pedidos(novoItem);
-       
+        ItemDoPedido novoItem = new ItemDoPedido(produto,quantidade);
+        List<ItemDoPedido> arrayDeNovosItens = new ArrayList<>();
+        arrayDeNovosItens.add(novoItem);
+        
+        Pedidos novoPedido = new Pedidos();
+        novoPedido.setPedidos(arrayDeNovosItens);
+        
         mesas.get(mesa).setPedido(novoPedido);
   
         response.sendRedirect("ver-mesa.html?codigo=" + mesa);
@@ -53,7 +59,7 @@ public class MesaDetalhesServlet extends HttpServlet {
         
         int cod = Integer.parseInt(request.getParameter("codigo"));
         request.setAttribute("pedidos", mesas.get(cod).getPedido());
-        request.setAttribute("mesa", cod);
+        request.setAttribute("codigo", cod);
 
        
         RequestDispatcher despachante = request.getRequestDispatcher("/WEB-INF/mesa-com-pedido.jsp");
@@ -63,9 +69,8 @@ public class MesaDetalhesServlet extends HttpServlet {
 
     private void adicionarPedido(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        int cod = Integer.parseInt(request.getParameter("mesa"));
-        request.setAttribute("pedidos", mesas.get(cod).getPedido());
-        request.setAttribute("mesa", cod);
+        int cod = Integer.parseInt(request.getParameter("codigo"));
+        request.setAttribute("codigo", cod);
        
         RequestDispatcher despachante = request.getRequestDispatcher("/WEB-INF/adicionar-pedido.jsp");
         despachante.forward(request, response);

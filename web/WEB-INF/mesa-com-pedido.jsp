@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="trabalho01.Pedidos"%>
 <%@page import="trabalho01.Mesas"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,21 +16,21 @@
         <table border="1">
             <tbody>
                 <%
-                    
                    Pedidos pedido = (Pedidos) request.getAttribute("pedidos");
-                   int codigo = (Integer) request.getAttribute("mesa");
+                   List<Mesas> mesas = (List<Mesas>) request.getAttribute("mesas");
+                   int codigo = (Integer) request.getAttribute("codigo");
                    
+                if(pedido.getPedidos()!=null){ 
                 %>
+                <% for(int i = 0 ; i<pedido.getPedidos().size();i++){ %>
                 <tr>
-                    <td><% 
-                        if(pedido.getPedidos()!=null) 
-                            out.println(pedido.toString());
-                    %></td>
+                    <td><%=pedido.getPedidos()%></td>
                    
-            <a href ="adicionar-pedido.html?mesa=<%=
+                   <% }}%>
+            </tr>
+            <a href ="adicionar-pedido.html?codigo=<%=
                codigo
                %>"> Adicionar Pedido </a>
-                </tr>
              
             </tbody>
         </table>

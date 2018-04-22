@@ -1,5 +1,5 @@
-<%@page import="trabalho01.ListaDosItens"%>
-<%@page import="trabalho01.ItemDoPedido"%>
+<%@page import="trabalho01.ListaDoCardapio"%>
+<%@page import="trabalho01.Cardapio"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,14 +10,14 @@
     </head>
     <body>
 
-        <%int codigo = (Integer) request.getAttribute("mesa");%>
+        <%int codigo = (Integer) request.getAttribute("codigo");%>
         <h1>Pedidos referentes a mesa <%=codigo%></h1>
         <form method="post">
             Pedido para mesa: <input name="mesa" placeholder=" <%=codigo%>" value="3" > 
             Quantidade: <input type ="text" name = "quantidade" /> 
             <!--COMBO DE SELEÇÃO -->
             <select name="produto">
-                <% List<ItemDoPedido> produtos = ListaDosItens.getInstance();
+                <% List<Cardapio> produtos = ListaDoCardapio.getInstance();
 
                     for (int i = 0; i < produtos.size(); i++) {%>
 

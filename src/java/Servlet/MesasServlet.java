@@ -69,15 +69,3 @@ public class MesasServlet extends HttpServlet {
 
 
 
-    /*
-    
-    List<Mesas> mesas = new ArrayList<>();
-    List<ItemDoPedido> itens = new ArrayList<>();
-    Pedidos pedido1 = new Pedidos(1, true, itens);
-
-    ItemDoPedido item1 = new ItemDoPedido("Coca-Cola", 1, 15);
-    ItemDoPedido item2 = new ItemDoPedido("Fanta", 2, 10);
-    ItemDoPedido item3 = new ItemDoPedido("Suco", 3, 12);
-
-    Mesas mesa1 = new Mesas(1, pedido1);
-*/
