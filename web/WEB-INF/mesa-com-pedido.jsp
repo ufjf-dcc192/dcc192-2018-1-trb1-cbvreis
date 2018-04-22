@@ -19,21 +19,24 @@
                    Pedidos pedido = (Pedidos) request.getAttribute("pedidos");
                    List<Mesas> mesas = (List<Mesas>) request.getAttribute("mesas");
                    int codigo = (Integer) request.getAttribute("codigo");
+                   int somaParcial = 0;
                    
                 if(pedido.getPedidos()!=null){ 
                 %>
-                <% for(int i = 0 ; i<pedido.getPedidos().size();i++){ %>
+                <% for(int i = 0 ; i<pedido.getPedidos().size();i++){
+                    somaParcial+= pedido.getPedidos().get(i).getPreco();%>
                 <tr>
-                    <td><%=pedido.getPedidos()%></td>
-                   
+                    <td><%=pedido.getPedidos().get(i)%></td>
+                    
+                    
                    <% }}%>
             </tr>
             <a href ="adicionar-pedido.html?codigo=<%=
                codigo
                %>"> Adicionar Pedido </a>
-             
             </tbody>
         </table>
+             <%=somaParcial%>
 
     </div>
     </body>

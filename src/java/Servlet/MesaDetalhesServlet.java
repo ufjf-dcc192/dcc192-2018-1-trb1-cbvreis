@@ -10,8 +10,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import trabalho01.Cardapio;
 import trabalho01.ItemDoPedido;
 import trabalho01.ListaDeMesas;
+import trabalho01.ListaDoCardapio;
 import trabalho01.Mesas;
 import trabalho01.Pedidos;
 
@@ -19,28 +21,30 @@ import trabalho01.Pedidos;
 public class MesaDetalhesServlet extends HttpServlet {
  
     List<Mesas> mesas = ListaDeMesas.getInstance();
-    
+    List<Cardapio> produtosNoCardapio = ListaDoCardapio.getInstance();
 
+   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int mesa = Integer.parseInt(request.getParameter("mesa"));
         int quantidade = Integer.parseInt(request.getParameter("quantidade"));
         String produto = request.getParameter("produto");
+        int preco = 0;
         
         
-        ItemDoPedido novoItem = new ItemDoPedido(produto,quantidade);
-        List<ItemDoPedido> arrayDeNovosItens = new ArrayList<>();
-        arrayDeNovosItens.add(novoItem);
+        for(int i = 0; i< produtosNoCardapio.size();i++){
+           if(produtosNoCardapio.get(i).getNome().equals(produto)){
+               preco=produtosNoCardapio.get(i).getPreco();
+               break;
+           }
+        }
         
-        Pedidos novoPedido = new Pedidos();
-        novoPedido.setPedidos(arrayDeNovosItens);
+        ItemDoPedido novoItem = new ItemDoPedido(produto,quantidade,preco);
+        mesas.get(mesa).getPedido().getPedidos().add(novoItem);
         
-        mesas.get(mesa).setPedido(novoPedido);
-  
         response.sendRedirect("ver-mesa.html?codigo=" + mesa);
 
     }
-
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -53,7 +57,7 @@ public class MesaDetalhesServlet extends HttpServlet {
         } 
 
     }
-
+    
     private void verMesa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
         
@@ -66,7 +70,7 @@ public class MesaDetalhesServlet extends HttpServlet {
         despachante.forward(request, response);
    
     }
-
+    
     private void adicionarPedido(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         int cod = Integer.parseInt(request.getParameter("codigo"));
@@ -76,8 +80,6 @@ public class MesaDetalhesServlet extends HttpServlet {
         despachante.forward(request, response);
         
     }
-   
-
 }
 
 

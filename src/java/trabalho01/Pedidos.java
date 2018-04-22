@@ -1,6 +1,7 @@
 
 package trabalho01;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public class Pedidos {
     private Date dataPedidoAbertura;
     private Date dataPedidoFechamento;
     private boolean estado = true;
-    private List<ItemDoPedido> pedidos;
+    private List<ItemDoPedido> pedidos = new ArrayList<>();
 
   
     public Pedidos() {
