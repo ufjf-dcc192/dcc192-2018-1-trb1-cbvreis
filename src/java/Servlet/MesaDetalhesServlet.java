@@ -3,6 +3,7 @@ package Servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -78,7 +79,12 @@ public class MesaDetalhesServlet extends HttpServlet {
 
         int cod = Integer.parseInt(request.getParameter("codigo"));
         request.setAttribute("codigo", cod);
-       
+        Date date = new Date();
+        if(mesas.get(cod).getPedido().getFlagDate()==0){
+        mesas.get(cod).getPedido().setDataPedidoAbertura(date.toString());
+        mesas.get(cod).getPedido().setFlagDate(1);
+        }
+               
         RequestDispatcher despachante = request.getRequestDispatcher("/WEB-INF/adicionar-pedido.jsp");
         despachante.forward(request, response);
         

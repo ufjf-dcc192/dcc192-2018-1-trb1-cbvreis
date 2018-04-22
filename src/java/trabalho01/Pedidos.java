@@ -9,8 +9,17 @@ import java.util.List;
 public class Pedidos {
     
     private int pedidoCod;
-    private Date dataPedidoAbertura;
-    private Date dataPedidoFechamento;
+    private String dataPedidoAbertura;
+    private String dataPedidoFechamento;
+    private int flagDate = 0;
+
+    public int getFlagDate() {
+        return flagDate;
+    }
+
+    public void setFlagDate(int flagDate) {
+        this.flagDate = flagDate;
+    }
     private boolean estado = true; //aberto
     private List<ItemDoPedido> pedidos = new ArrayList<>();
 
@@ -23,31 +32,13 @@ public class Pedidos {
         pedidos.add(novoItem);
     }
 
-    
-     
-    
+      
     public int getPedidoCod() {
         return pedidoCod;
     }
 
     public void setPedidoCod(int pedidoCod) {
         this.pedidoCod = pedidoCod;
-    }
-
-    public Date getDataPedidoAbertura() {
-        return dataPedidoAbertura;
-    }
-
-    public void setDataPedidoAbertura(Date dataPedidoAbertura) {
-        this.dataPedidoAbertura = dataPedidoAbertura;
-    }
-
-    public Date getDataPedidoFechamento() {
-        return dataPedidoFechamento;
-    }
-
-    public void setDataPedidoFechamento(Date dataPedidoFechamento) {
-        this.dataPedidoFechamento = dataPedidoFechamento;
     }
 
     public boolean isEstado() {
@@ -70,6 +61,21 @@ public class Pedidos {
         this.pedidos = pedidos;
     }
 
-     
+      public String getDataPedidoAbertura() {
+        return dataPedidoAbertura;
+    }
+
+    public void setDataPedidoAbertura(String dataPedidoAbertura) {
+        this.dataPedidoAbertura = dataPedidoAbertura;
+    }
+
+    public String getDataPedidoFechamento() {
+        return dataPedidoFechamento;
+    }
+
+    public void setDataPedidoFechamento(String dataPedidoFechamento) {
+        this.dataPedidoFechamento = dataPedidoFechamento;
+    }
+
 
 }

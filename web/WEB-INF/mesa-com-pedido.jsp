@@ -52,6 +52,8 @@
         <br/><a href ="adicionar-pedido.html?codigo=<%=codigo%>"> Adicionar Pedido </a>
 
         <br/><a href ="fechar-pedido.html?codigo=<%=codigo%>"> Fechar Pedido </a>
+        
+        <br/> <%=pedido.getDataPedidoAbertura() %>
   
 
         <%}%>
