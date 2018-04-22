@@ -42,6 +42,7 @@ public class MesaDetalhesServlet extends HttpServlet {
         
         ItemDoPedido novoItem = new ItemDoPedido(produto,quantidade,preco);
         mesas.get(mesa).getPedido().getPedidos().add(novoItem);
+        mesas.get(mesa).getPedido().setSomaTotal(quantidade*preco);
         
         response.sendRedirect("ver-mesa.html?codigo=" + mesa);
 
@@ -94,6 +95,7 @@ public class MesaDetalhesServlet extends HttpServlet {
         
         int cod = Integer.parseInt(request.getParameter("codigo"));
         mesas.get(cod).getPedido().setEstado(false);
+        
         request.setAttribute("pedidos", mesas.get(cod).getPedido());
         request.setAttribute("codigo", cod);
        

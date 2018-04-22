@@ -12,6 +12,15 @@ public class Pedidos {
     private String dataPedidoAbertura;
     private String dataPedidoFechamento;
     private int flagDate = 0;
+    private int somaTotal = 0;
+
+    public int getSomaTotal() {
+        return somaTotal;
+    }
+
+    public void setSomaTotal(int somaTotal) {
+        this.somaTotal = somaTotal + this.somaTotal ;
+    }
 
     public int getFlagDate() {
         return flagDate;

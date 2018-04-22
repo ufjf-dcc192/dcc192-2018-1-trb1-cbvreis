@@ -9,7 +9,6 @@
     int codigo = (Integer) request.getAttribute("codigo");
     int somaParcial = 0;
 %>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,7 +17,7 @@
     </head>
     <body>
         <h1>Mesa  </h1>
-        <%if(!pedido.isEstado()){ %>
+        <%if (!pedido.isEstado()) { %>
         <h1>
             Pedido fechado!
         </h1>
@@ -27,41 +26,24 @@
         <div>
             <table border="1">
                 <tbody>
-
                     <% for (int i = 0; i < pedido.getPedidos().size(); i++) {
-                        somaParcial += pedido.getPedidos().get(i).getPreco();%>
+                                somaParcial += pedido.getPedidos().get(i).getPreco();%>
                     <tr>
-                        <td><%=pedido.getPedidos().get(i)%></td>
-
-
-                        <% }%>
+                        <td><%=pedido.getPedidos().get(i)%></td><% }%>
                     </tr>
                 </tbody>
             </table>
-          <%}%>
+            <%}%>
             <br/>
-
             <div> O Valor atual para pagamento é :<b> <%=somaParcial%> </b></div>
 
-
-
-
-
-            
-        <%if(pedido.isEstado()){ %>
-        <br/><a href ="adicionar-pedido.html?codigo=<%=codigo%>"> Adicionar Pedido </a>
-
-        <br/><a href ="fechar-pedido.html?codigo=<%=codigo%>"> Fechar Pedido </a>
-        
-        <br/> <%=pedido.getDataPedidoAbertura() %>
-  
-
-        <%}%>
-
-        
-
+            <!--Botões serão validados de acordo com o estado do pedido-->
+            <%if (pedido.isEstado()) {%>
+            <br/><a href ="adicionar-pedido.html?codigo=<%=codigo%>"> Adicionar Pedido </a>
+            <br/><a href ="fechar-pedido.html?codigo=<%=codigo%>"> Fechar Pedido </a>
+            <%}%>
         </div>
+        <br/> <%=pedido.getDataPedidoAbertura()%>
         <br/><a href ="mesas.html"> Voltar as Mesas </a>
-
     </body>
 </html>
