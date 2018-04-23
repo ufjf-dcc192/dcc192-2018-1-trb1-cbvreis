@@ -17,9 +17,9 @@
             <table class="table table-striped">
                 <thread >
                     <tr>
-                    <td> Valor Total da Mesa</td>
-                    <td> Abertura do Pedido</td>
-                    <td> Fechamento do Pedido</td>
+                    <th> Valor Total da Mesa</th>
+                    <th> Abertura do Pedido</th>
+                    <th> Fechamento do Pedido</th>
                     </tr>
                 </thread>
                 <tbody>

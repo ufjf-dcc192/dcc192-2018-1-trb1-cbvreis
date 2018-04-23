@@ -20,8 +20,8 @@
             <table class="table table-bordered">
                 <thread >
                     <tr>
-                        <td> Produto</td>
-                        <td> Preço</td>
+                        <th> Produto</th>
+                        <th> Preço</th>
                         
                     </tr>
                 </thread>
