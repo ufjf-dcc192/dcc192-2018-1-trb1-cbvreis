@@ -1,8 +1,6 @@
-
 package trabalho01;
 
 import java.util.Date;
-
 
 public class Mesas {
     
@@ -73,8 +71,5 @@ public class Mesas {
     public void setMesacod(int mesacod) {
         this.contadorDeMesa = mesacod;
     }
-    
-    
-    
     
 }

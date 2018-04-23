@@ -1,7 +1,6 @@
 package Servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,8 +14,6 @@ import trabalho01.ListaDoCardapio;
 @WebServlet(name = "CardapioServlet", urlPatterns = {"/cardapio.html"})
 public class CardapioServlet extends HttpServlet {
 
-
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -24,21 +21,15 @@ public class CardapioServlet extends HttpServlet {
         if ("/cardapio.html".equals(request.getServletPath())) {
             listarCardapio(request, response);
         }
-        
     }
 
     private void listarCardapio(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
         List<Cardapio> cardapio =  ListaDoCardapio.getInstance();
-        
         request.setAttribute("cardapio", cardapio);
         RequestDispatcher despachante = request.getRequestDispatcher("/WEB-INF/cardapio.jsp");
         despachante.forward(request, response);
         
         
     }
-
-  
-   
-
 }

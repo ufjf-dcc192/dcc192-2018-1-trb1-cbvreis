@@ -32,6 +32,5 @@ public class RelatorioServlet extends HttpServlet {
         despachante.forward(request, response);
 
     }
-
     
 }

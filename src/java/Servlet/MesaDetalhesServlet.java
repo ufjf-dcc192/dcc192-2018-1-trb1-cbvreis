@@ -1,8 +1,6 @@
 package Servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -16,7 +14,6 @@ import trabalho01.ItemDoPedido;
 import trabalho01.ListaDeMesas;
 import trabalho01.ListaDoCardapio;
 import trabalho01.Mesas;
-import trabalho01.Pedidos;
 
 @WebServlet(name = "MesaDetalhesServlet", urlPatterns = {"/ver-mesa.html","/fechar-pedido.html","/adicionar-pedido.html"})
 public class MesaDetalhesServlet extends HttpServlet {
@@ -24,7 +21,6 @@ public class MesaDetalhesServlet extends HttpServlet {
     List<Mesas> mesas = ListaDeMesas.getInstance();
     List<Cardapio> produtosNoCardapio = ListaDoCardapio.getInstance();
 
-   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int mesa = Integer.parseInt(request.getParameter("mesa"));
@@ -32,19 +28,15 @@ public class MesaDetalhesServlet extends HttpServlet {
         String produto = request.getParameter("produto");
         double preco = 0;
         
-        
         for(int i = 0; i< produtosNoCardapio.size();i++){
            if(produtosNoCardapio.get(i).getNome().equals(produto)){
                preco=produtosNoCardapio.get(i).getPreco();
                break;
            }
         }
-        
         ItemDoPedido novoItem = new ItemDoPedido(produto,quantidade,preco);
         mesas.get(mesa).getPedido().getPedidos().add(novoItem);
-        
         mesas.get(mesa).getPedido().setSomaTotal((quantidade*preco));
-        
         response.sendRedirect("ver-mesa.html?codigo=" + mesa);
 
     }

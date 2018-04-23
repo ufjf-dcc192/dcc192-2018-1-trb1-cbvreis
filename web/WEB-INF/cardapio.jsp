@@ -22,8 +22,7 @@
                     <tr>
                         <th> Produto</th>
                         <th> Preço</th>
-                        
-                    </tr>
+                   </tr>
                 </thread>
                 <tbody>
 
@@ -31,10 +30,8 @@
                     <tr>
                         <td><%= cardapio.get(i).getNome()%></td>
                         <td>R$<%= cardapio.get(i).getPreco()%></td>
-
                     </tr>
                     <%}%>
-
             </table>
             <br/>
             <a href ="index.html" class="btn btn-primary btn-lg">  Voltar ao Menu </a>

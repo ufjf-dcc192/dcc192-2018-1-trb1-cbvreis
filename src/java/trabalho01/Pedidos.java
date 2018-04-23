@@ -2,9 +2,7 @@
 package trabalho01;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
 
 public class Pedidos {
     
@@ -16,10 +14,6 @@ public class Pedidos {
     private boolean estado = true; //aberto
     private List<ItemDoPedido> pedidos = new ArrayList<>();
   
-    
-    
-    
-
     public double getSomaTotal() {
         return somaTotal;
     }
@@ -35,7 +29,6 @@ public class Pedidos {
     public void setFlagDate(int flagDate) {
         this.flagDate = flagDate;
     }
-
   
     public Pedidos() {
      
@@ -45,7 +38,6 @@ public class Pedidos {
         pedidos.add(novoItem);
     }
 
-      
     public int getPedidoCod() {
         return pedidoCod;
     }
@@ -89,6 +81,5 @@ public class Pedidos {
     public void setDataPedidoFechamento(String dataPedidoFechamento) {
         this.dataPedidoFechamento = dataPedidoFechamento;
     }
-
 
 }

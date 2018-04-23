@@ -1,6 +1,4 @@
-
 package trabalho01;
-
 
 public class ItemDoPedido {
     
@@ -45,6 +43,5 @@ public class ItemDoPedido {
     public void setPreco(int preco) {
         this.preco = preco;
     }
-
-          
+         
 }

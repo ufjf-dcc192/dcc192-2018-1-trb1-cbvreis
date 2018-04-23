@@ -7,9 +7,7 @@ import java.util.List;
 public class ListaDoCardapio {
     
     private static List<Cardapio> itensDoCardapio;
-    
 
-    
     public static List<Cardapio> getInstance() {
         if (itensDoCardapio == null) {
             itensDoCardapio = new ArrayList<>();
@@ -20,7 +18,6 @@ public class ListaDoCardapio {
             itensDoCardapio.add(new Cardapio("Cerveja Artenasal",15.35));
             itensDoCardapio.add(new Cardapio("Torresmo",18.90));
             itensDoCardapio.add(new Cardapio("Pizza",35.90));
-
         }
         return itensDoCardapio;
     }
