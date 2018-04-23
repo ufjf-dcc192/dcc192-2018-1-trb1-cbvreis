@@ -8,7 +8,7 @@
     Pedidos pedido = (Pedidos) request.getAttribute("pedidos");
     List<Mesas> mesas = (List<Mesas>) request.getAttribute("mesas");
     int codigo = (Integer) request.getAttribute("codigo");
-    int somaParcial = 0;
+    double somaParcial = 0;
 %>
 <!DOCTYPE html>
 <html>
@@ -47,10 +47,10 @@
                 </table>
                 <%}%>
                 <br/>
-                <h2> O Valor atual para pagamento é :<b> <%=somaParcial%> </b></h2>
+                <h2> O Valor atual para pagamento é :<b>R$ <%=String.format("%.2f",somaParcial)%> </b></h2>
 
                 <p> Horário de abertura do pedido:  <%=pedido.getDataPedidoAbertura()%></p>
-                <%if (!pedido.isEstado()) { %> <p style="color:red"> <%=pedido.getDataPedidoFechamento()%> </p><%}%>
+                <%if (!pedido.isEstado()) { %> <p style="color:red">Horário de fechamento do pedido: <%=pedido.getDataPedidoFechamento()%> </p><%}%>
                 <!--Botões serão validados de acordo com o estado do pedido-->
             </div>
             <div class="container">

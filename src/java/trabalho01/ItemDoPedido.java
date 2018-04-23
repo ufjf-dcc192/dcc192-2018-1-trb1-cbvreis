@@ -6,9 +6,9 @@ public class ItemDoPedido {
     
     private String nome;
     private int quantidade;
-    private int preco;
+    private double preco;
    
-    public ItemDoPedido(String nome, int quantidade,int preco) {
+    public ItemDoPedido(String nome, int quantidade,double preco) {
         this.nome = nome;
         this.quantidade = quantidade;
         this.preco=preco *quantidade;
@@ -38,7 +38,7 @@ public class ItemDoPedido {
         return "Pedido: " + nome + "\nQuantidade: " + quantidade +  "\nPreco: " + preco ;
     }
 
-    public int getPreco() {
+    public double getPreco() {
         return preco;
     }
 

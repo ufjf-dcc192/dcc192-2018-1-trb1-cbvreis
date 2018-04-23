@@ -30,7 +30,7 @@ public class MesaDetalhesServlet extends HttpServlet {
         int mesa = Integer.parseInt(request.getParameter("mesa"));
         int quantidade = Integer.parseInt(request.getParameter("quantidade"));
         String produto = request.getParameter("produto");
-        int preco = 0;
+        double preco = 0;
         
         
         for(int i = 0; i< produtosNoCardapio.size();i++){
@@ -42,7 +42,8 @@ public class MesaDetalhesServlet extends HttpServlet {
         
         ItemDoPedido novoItem = new ItemDoPedido(produto,quantidade,preco);
         mesas.get(mesa).getPedido().getPedidos().add(novoItem);
-        mesas.get(mesa).getPedido().setSomaTotal(quantidade*preco);
+        
+        mesas.get(mesa).getPedido().setSomaTotal((quantidade*preco));
         
         response.sendRedirect("ver-mesa.html?codigo=" + mesa);
 

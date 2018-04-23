@@ -12,13 +12,19 @@ public class Pedidos {
     private String dataPedidoAbertura;
     private String dataPedidoFechamento;
     private int flagDate = 0;
-    private int somaTotal = 0;
+    private double somaTotal = 0;
+    private boolean estado = true; //aberto
+    private List<ItemDoPedido> pedidos = new ArrayList<>();
+  
+    
+    
+    
 
-    public int getSomaTotal() {
+    public double getSomaTotal() {
         return somaTotal;
     }
 
-    public void setSomaTotal(int somaTotal) {
+    public void setSomaTotal(double somaTotal) {
         this.somaTotal = somaTotal + this.somaTotal ;
     }
 
@@ -29,8 +35,6 @@ public class Pedidos {
     public void setFlagDate(int flagDate) {
         this.flagDate = flagDate;
     }
-    private boolean estado = true; //aberto
-    private List<ItemDoPedido> pedidos = new ArrayList<>();
 
   
     public Pedidos() {

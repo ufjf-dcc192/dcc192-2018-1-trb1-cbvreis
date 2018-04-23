@@ -4,12 +4,12 @@ package trabalho01;
 public class Cardapio {
     
     private String nome;
-    private int preco;
+    private double preco;
 
     public Cardapio() {
     }
 
-    public Cardapio(String nome, int preco) {
+    public Cardapio(String nome, double preco) {
         this.nome = nome;
         this.preco = preco;
     }
@@ -22,11 +22,11 @@ public class Cardapio {
         this.nome = nome;
     }
 
-    public int getPreco() {
+    public double getPreco() {
         return preco;
     }
 
-    public void setPreco(int preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
     }
 

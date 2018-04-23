@@ -30,15 +30,19 @@
                     <tr>
 
                         <td> <a href="ver-mesa.html?codigo=<%=i%>"><%= mesas.get(i).toString()%> </a></td>
-                        <td><% if (mesas.get(i).getPedido().isEstado() == true) {
-                            %> ABERTO
+                        <% if (mesas.get(i).getPedido().isEstado() == true) {
+                        %><td style="color:blue">
+                            <b> ABERTO</b>
                             <%
-                            } else {
-                            %> FECHADO
+                            }   else {
+                            %> 
+                        
+                        <td style="color:red"> <b> FECHADO</b>
                             <%
                                 }
-                            %> </td>
-                        <td colspan="3"> <a href="excluir-mesa.html?codigo=<%=i%>"> Excluir Mesa </a> </td>
+                            %> 
+                        </td>
+                        <td colspan="3"> <a href="excluir-mesa.html?codigo=<%=i%>"><i class="fa fa-ban" style="font-size:24px"></i> </a> </td>
                     </tr>
                     <%
                         }
