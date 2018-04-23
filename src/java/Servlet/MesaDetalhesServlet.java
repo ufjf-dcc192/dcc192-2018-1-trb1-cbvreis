@@ -95,7 +95,8 @@ public class MesaDetalhesServlet extends HttpServlet {
         
         int cod = Integer.parseInt(request.getParameter("codigo"));
         mesas.get(cod).getPedido().setEstado(false);
-        
+        Date date = new Date();
+        mesas.get(cod).getPedido().setDataPedidoFechamento(date.toString());
         request.setAttribute("pedidos", mesas.get(cod).getPedido());
         request.setAttribute("codigo", cod);
        

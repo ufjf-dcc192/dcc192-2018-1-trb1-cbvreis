@@ -1,6 +1,7 @@
 <%@page import="java.util.List"%>
 <%@page import="trabalho01.Pedidos"%>
 <%@page import="trabalho01.Mesas"%>
+<%@include file ="jspf/cabecalho.jspf"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
@@ -13,37 +14,51 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Controle da Mesa <%=codigo%> </title>
     </head>
     <body>
-        <h1>Mesa  </h1>
-        <%if (!pedido.isEstado()) { %>
-        <h1>
-            Pedido fechado!
-        </h1>
-        <%}%>
-        <% if (pedido.getPedidos() != null) { %>
-        <div>
-            <table border="1">
-                <tbody>
-                    <% for (int i = 0; i < pedido.getPedidos().size(); i++) {
-                                somaParcial += pedido.getPedidos().get(i).getPreco();%>
-                    <tr>
-                        <td><%=pedido.getPedidos().get(i)%></td><% }%>
-                    </tr>
-                </tbody>
-            </table>
-            <%}%>
-            <br/>
-            <div> O Valor atual para pagamento é :<b> <%=somaParcial%> </b></div>
+        <div class="container">
+            <h1>Mesa <%=codigo%> </h1>
 
-            <!--Botões serão validados de acordo com o estado do pedido-->
-            <%if (pedido.isEstado()) {%>
-            <br/><a href ="adicionar-pedido.html?codigo=<%=codigo%>"> Adicionar Pedido </a>
-            <br/><a href ="fechar-pedido.html?codigo=<%=codigo%>"> Fechar Pedido </a>
+            <%if (!pedido.isEstado()) { %>
+            <h1 style="color:red">
+                Pedido fechado!
+            </h1>
             <%}%>
+
+            <div class="container">
+                <%if (pedido.isEstado()) {%>
+                <br/><a href ="adicionar-pedido.html?codigo=<%=codigo%>" class="btn btn-primary btn-sm"> Adicionar Pedido </a>
+                <a href ="fechar-pedido.html?codigo=<%=codigo%>" class="btn btn-primary btn-sm"> Fechar Pedido </a>
+                <%}%>
+            </div>
+
+            <br/>
+            <% if (pedido.getPedidos() != null) { %>
+            <div class="container">
+                <table class="table table-bordered">
+                    <tbody>
+                        <% for (int i = 0; i < pedido.getPedidos().size(); i++) {
+                                somaParcial += pedido.getPedidos().get(i).getPreco();%>
+                        <tr>
+                            <td><%=pedido.getPedidos().get(i)%></td><% }%>
+                        </tr>
+                    </tbody>
+                </table>
+                <%}%>
+                <br/>
+                <h2> O Valor atual para pagamento é :<b> <%=somaParcial%> </b></h2>
+
+                <p> Horário de abertura do pedido:  <%=pedido.getDataPedidoAbertura()%></p>
+                <%if (!pedido.isEstado()) { %> <p style="color:red"> <%=pedido.getDataPedidoFechamento()%> </p><%}%>
+                <!--Botões serão validados de acordo com o estado do pedido-->
+            </div>
+            <div class="container">
+                <br/><p>  
+                    <a href ="mesas.html" class="btn btn-primary btn-lg"> Voltar as Mesas </a></p>
+            </div>
         </div>
-        <br/> <%=pedido.getDataPedidoAbertura()%>
-        <br/><a href ="mesas.html"> Voltar as Mesas </a>
+        <%@include file ="jspf/rodape.jspf"%>
     </body>
+
 </html>
