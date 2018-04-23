@@ -25,14 +25,11 @@ public class MesasServlet extends HttpServlet {
         if ("/mesas.html".equals(request.getServletPath())) {
             listarMesas(request, response);
         } else if ("/adicionar.html".equals(request.getServletPath())) {
-
             mesas.add(new Mesas());
             listarMesas(request, response);
         } else if ("/excluir-mesa.html".equals(request.getServletPath())) {
-
             excluirMesa(request, response);
         } else if ("/fechar-mesa.html".equals(request.getServletPath())) {
-
             fecharMesa(request, response);
         }
 
@@ -43,14 +40,14 @@ public class MesasServlet extends HttpServlet {
         request.setAttribute("mesas", mesas);
         RequestDispatcher despachante = request.getRequestDispatcher("/WEB-INF/mesas.jsp");
         despachante.forward(request, response);
-
     }
 
     private void excluirMesa(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         int cod = Integer.parseInt(request.getParameter("codigo"));
         List<Mesas> mesas = ListaDeMesas.getInstance();
-        if(mesas.get(cod).getPedido().isEstado()){
+        /*--- VERIFICA ESTADO DO PEDIDO PARA SABER SE PODE SER FECHADA A MESA---*/
+        if(!mesas.get(cod).getPedido().isEstado()){
             mesas.remove(cod);
         }else{
             //request.setAttribute("alerta", alerta);
