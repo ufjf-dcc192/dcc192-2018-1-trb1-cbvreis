@@ -28,7 +28,7 @@
 
             <div class="container">
                 <%if (pedido.isEstado()) {%>
-                <br/><a href ="adicionar-pedido.html?codigo=<%=codigo%>" class="btn btn-primary btn-sm"> Adicionar Pedido </a>
+                <br/><a href ="adicionar-pedido.html?codigo=<%=codigo%>" class="btn btn-primary btn-sm"> Adicionar Itens aoPedido </a>
                 <a href ="fechar-pedido.html?codigo=<%=codigo%>" class="btn btn-primary btn-sm"> Fechar Pedido </a>
                 <%}%>
             </div>

@@ -1,7 +1,10 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="trabalho01.Mesas"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.List"%>
 <%@include file ="jspf/cabecalho.jspf"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <% List<Mesas> mesas = (List<Mesas>) request.getAttribute("mesas");%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,7 +16,7 @@
     <body>
         <div class="container">
             <h1>Relatório Gerencial</h1>
-
+          
             <table class="table table-striped">
                 <thread >
                     <tr>
@@ -23,10 +26,10 @@
                     </tr>
                 </thread>
                 <tbody>
-
-                <% for (int i = 0; i < mesas.size(); i++) {%>
+    
+            <% for (int i = 0; i < mesas.size(); i++) {%>
                 <tr>
-                    <td>Mesa <%=i%>: R$<%= mesas.get(i).getPedido().getSomaTotal()%></td>
+                    <td>Mesa <%=i%>: <fmt:formatNumber value = "<%= mesas.get(i).getPedido().getSomaTotal()%>" type = "currency"/></td>
                     <td><%= mesas.get(i).getPedido().getDataPedidoAbertura()%></td>
                     <td><%= mesas.get(i).getPedido().getDataPedidoFechamento()%></td>
                 </tr>
