@@ -22,7 +22,7 @@
 
                 <div class="form-group">
                     <label for="usr"> Quantidade:</label>
-                    <input type="number" min="0" max="15" class="form-control" name = "quantidade" /> 
+                    <input type="number" min="0" max="15" value="1" class="form-control" name = "quantidade" /> 
 
                 </div>
 

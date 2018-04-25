@@ -7,8 +7,8 @@ import java.util.List;
 public class Pedidos {
     
     private int pedidoCod;
-    private String dataPedidoAbertura;
-    private String dataPedidoFechamento;
+    private String dataPedidoAbertura = "";
+    private String dataPedidoFechamento = "";
     private int flagDate = 0;
     private double somaTotal = 0;
     private boolean estado = true; //aberto
