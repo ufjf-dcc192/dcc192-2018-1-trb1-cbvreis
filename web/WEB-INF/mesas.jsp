@@ -1,12 +1,12 @@
 <%@page import="java.util.List"%>
 <%@page import="trabalho01.Mesas"%>
-<%@include file ="jspf/cabecalho.jspf"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Gerir Mesas</title>
+        <%@include file ="jspf/cabecalho.jspf"%>
     </head>
     <body>
     <div class="container">

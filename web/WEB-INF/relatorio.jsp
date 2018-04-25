@@ -2,7 +2,6 @@
 <%@page import="trabalho01.Mesas"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.List"%>
-<%@include file ="jspf/cabecalho.jspf"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <% List<Mesas> mesas = (List<Mesas>) request.getAttribute("mesas");%>
@@ -12,6 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Relatório Gerencial</title>
+        <%@include file ="jspf/cabecalho.jspf"%>
     </head>
     <body>
         <div class="container">

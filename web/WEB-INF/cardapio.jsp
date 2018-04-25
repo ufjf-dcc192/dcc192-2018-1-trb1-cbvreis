@@ -3,13 +3,13 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.List"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@include file ="jspf/cabecalho.jspf"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Itens no Cardápio</title>
+        <%@include file ="jspf/cabecalho.jspf"%>
     </head>
     <body>
         <div class="container">

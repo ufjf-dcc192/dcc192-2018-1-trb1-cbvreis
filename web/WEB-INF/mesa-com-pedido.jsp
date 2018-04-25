@@ -1,7 +1,6 @@
 <%@page import="java.util.List"%>
 <%@page import="trabalho01.Pedidos"%>
 <%@page import="trabalho01.Mesas"%>
-<%@include file ="jspf/cabecalho.jspf"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
@@ -15,6 +14,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Controle da Mesa <%=codigo%> </title>
+        <%@include file ="jspf/cabecalho.jspf"%>
     </head>
     <body>
         <div class="container">
